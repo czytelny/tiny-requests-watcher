@@ -4,17 +4,17 @@
 **/
 
 //type="GET" || "POST". undefined == all type of requests (post,get etc)
-var RequestWatcher = function(spinnerElement, type) {    
+var RequestWatcher = function(spinnerId, type) {    
      var openProto = XMLHttpRequest.prototype.open;
-
      XMLHttpRequest.prototype.open = function(requestType, requestUrl) {  
             openProto.apply(this, arguments);
             var xhr = this;
             if (type) {
-                if (requestType.toLowerCase() === type.toLowerCase) {
+                if (requestType.toLowerCase() === type.toLowerCase()) {
+                    var spinnerElement = document.getElementById(spinnerId);
                     spinnerElement.style.display = "block";          
 
-                    openProto.addEventListener("load", function() {
+                    xhr.addEventListener("load", function() {
                         spinnerElement.style.display = "none";       
                     }, false);
                 }            

@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/tiny-rw.js': ['js/main.js']
+                    'dist/tiny-rw.js': ['js/tiny-rw.js']
                 }
             }
         },
