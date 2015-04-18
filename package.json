@@ -1,0 +1,17 @@
+{
+    "name": "RecruitTester",
+    "version": "1.0.0",
+    "main": "app.js",
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-contrib-jshint": "^0.10.0",
+        "grunt-karma": "latest",
+        "grunt-contrib-jasmine" : "latest",        
+        "karma": "latest",
+        "karma-jasmine": "~0.2",        
+        "karma-phantomjs-launcher": "latest",
+        "phantomjs": "latest",
+        "grunt-contrib-concat": "latest",
+        "grunt-contrib-uglify": "latest"
+    }
+}
