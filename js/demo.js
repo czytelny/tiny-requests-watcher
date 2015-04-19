@@ -1,9 +1,11 @@
-RequestWatcher('spinner', 'get');
+"use strict";
+
+var rw = new RequestWatcher('spinner', 'get');
 
 
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
+    if (xhr.readyState === 4 && xhr.status === 200) {
         console.log("successfull received");
     }
 };

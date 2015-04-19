@@ -13,6 +13,8 @@
     "eqnull": true,
     "node": true,
     "globals": {
+        /*request watcher*/
+        "RequestWatcher": true,
         /*jasmine*/
         "it": false,
         "xit": false,

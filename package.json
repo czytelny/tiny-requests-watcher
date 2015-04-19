@@ -12,6 +12,7 @@
         "karma-phantomjs-launcher": "latest",
         "phantomjs": "latest",
         "grunt-contrib-concat": "latest",
-        "grunt-contrib-uglify": "latest"
+        "grunt-contrib-uglify": "latest",
+        "grunt-contrib-less": "latest"
     }
 }

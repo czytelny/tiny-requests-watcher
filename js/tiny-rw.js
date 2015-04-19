@@ -1,10 +1,12 @@
+"use strict";
+
 /**
     Tiny requests watcher. 
     Supported by >=IE9 and other modern browsers    
 **/
 
 //type="GET" || "POST". undefined == all type of requests (post,get etc)
-var RequestWatcher = function(spinnerId, type) {    
+var RequestWatcher = function(spinnerId, type) {
      var openProto = XMLHttpRequest.prototype.open;
      XMLHttpRequest.prototype.open = function(requestType, requestUrl) {  
             openProto.apply(this, arguments);

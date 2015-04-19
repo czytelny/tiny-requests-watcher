@@ -18,16 +18,6 @@ module.exports = function (grunt) {
             }
         },
 
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                files: {
-                    'dist/tiny-rw.js': ['js/tiny-rw.js']
-                }
-            }
-        },
         uglify: {
             options: {
                 mangleProperties: true,
@@ -36,7 +26,34 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/tiny-rw.min.js': ['dist/tiny-.js']
+                    'dist/tiny-rw.min.js': ['dist/tiny-rw.js']
+                }
+            }
+        },
+        concat: {
+            options: {
+                separator: ';'
+            },
+            defau: {
+                files: {
+                    'dist/tiny-rw.js': ['js/tiny-rw.js']
+                }
+            }
+        },
+        less: {
+            dev: {
+                files: {
+                    "dist/tin-rw.css": "less/tiny-rw.less"
+                }
+            },
+            dist: {
+                options: {
+                    compress: true,
+                    yuicompress: true,
+                    optimization: 2
+                },
+                files: {
+                    "dist/tin-rw.min.css": "less/tiny-rw.less"
                 }
             }
         }
@@ -46,8 +63,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('dev', ['jshint', 'karma', 'concat:dist']);
-    grunt.registerTask('dist', ['concat', 'uglify']);
-    grunt.registerTask('install', ['concat:dist']);
+    grunt.registerTask('dist', ['concat', 'uglify', 'less:dist']);
+    grunt.registerTask('install', ['concat', 'less:dev', 'jshint']);
 };
