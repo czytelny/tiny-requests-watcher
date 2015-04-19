@@ -1,92 +1,95 @@
+//settings
 @spinner-height: 2px;
+@spinner-width: 100%;
+@moving-part-width: 150px;
+@duration: 3s;
+@animation-name: bounce-loading;
+@background-color: #000000;
+@moving-part-color: #f9eb03;
+@timing-function: linear;
 
 #spinner {
-  width: 100%;
-  height: 2px;
+  width: @spinner-width;
+  height: @spinner-height;
   overflow: hidden;
-  background-color: #000000;
+  background-color: @background-color;
   position: absolute;
   top: 0;
 }
 
 .loadingProgress {
-  background-color: #ffffff;
-  margin-top: 0;
-  -moz-animation-name: bounce_loadingProgressG;
-  -moz-animation-duration: 3s;
+  width: @moving-part-width;
+  height: @spinner-height;
+  background-color: @moving-part-color;
+
+  -moz-animation-name: @animation-name;
+  -moz-animation-duration: @duration;
   -moz-animation-iteration-count: infinite;
-  -moz-animation-timing-function: linear;
-  -webkit-animation-name: bounce_loadingProgressG;
-  -webkit-animation-duration: 3s;
+  -moz-animation-timing-function: @timing-function;
+  -webkit-animation-name: @animation-name;
+  -webkit-animation-duration: @duration;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -ms-animation-name: bounce_loadingProgressG;
-  -ms-animation-duration: 3s;
+  -webkit-animation-timing-function: @timing-function;
+  -ms-animation-name: @animation-name;
+  -ms-animation-duration: @duration;
   -ms-animation-iteration-count: infinite;
-  -ms-animation-timing-function: linear;
-  -o-animation-name: bounce_loadingProgressG;
-  -o-animation-duration: 3s;
+  -ms-animation-timing-function: @timing-function;
+  -o-animation-name: @animation-name;
+  -o-animation-duration: @duration;
   -o-animation-iteration-count: infinite;
-  -o-animation-timing-function: linear;
-  animation-name: bounce_loadingProgressG;
-  animation-duration: 3s;
+  -o-animation-timing-function: @timing-function;
+  animation-name: @animation-name;
+  animation-duration: @duration;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  width: 150px;
-  height: 2px;
+  animation-timing-function: @timing-function;
 }
 
-@-moz-keyframes bounce_loadingProgressG {
+@-moz-keyframes @animation-name {
   0% {
-    margin-left: -150px;
+    margin-left: -@moving-part-width;
   }
 
   100% {
-    margin-left: 100%;
+    margin-left: @spinner-width;
   }
-
 }
 
-@-webkit-keyframes bounce_loadingProgressG {
+@-webkit-keyframes @animation-name {
   0% {
-    margin-left: -150px;
+    margin-left: -@moving-part-width;
   }
 
   100% {
-    margin-left: 100%;
+    margin-left: @spinner-width;
   }
-
 }
 
-@-ms-keyframes bounce_loadingProgressG {
+@-ms-keyframes @animation-name {
   0% {
-    margin-left: -150px;
+    margin-left: -@moving-part-width;
   }
 
   100% {
-    margin-left: 100%;
+    margin-left: @spinner-width;
   }
-
 }
 
-@-o-keyframes bounce_loadingProgressG {
+@-o-keyframes @animation-name {
   0% {
-    margin-left: -150px;
+    margin-left: -@moving-part-width;
   }
 
   100% {
-    margin-left: 100%;
+    margin-left: @spinner-width;
   }
-
 }
 
-@keyframes bounce_loadingProgressG {
+@keyframes @animation-name {
   0% {
-    margin-left: -150px;
+    margin-left: -@moving-part-width;
   }
 
   100% {
-    margin-left: 100%;
+    margin-left: @spinner-width;
   }
-
 }

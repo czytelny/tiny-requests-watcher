@@ -43,7 +43,7 @@ module.exports = function (grunt) {
         less: {
             dev: {
                 files: {
-                    "dist/tin-rw.css": "less/tiny-rw.less"
+                    "dist/tiny-rw.css": "less/tiny-rw.less"
                 }
             },
             dist: {
@@ -53,7 +53,7 @@ module.exports = function (grunt) {
                     optimization: 2
                 },
                 files: {
-                    "dist/tin-rw.min.css": "less/tiny-rw.less"
+                    "dist/tiny-rw.min.css": "less/tiny-rw.less"
                 }
             }
         }

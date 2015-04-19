@@ -7,32 +7,31 @@
   top: 0;
 }
 .loadingProgress {
-  background-color: #ffffff;
-  margin-top: 0;
-  -moz-animation-name: bounce_loadingProgressG;
+  width: 150px;
+  height: 2px;
+  background-color: #f9eb03;
+  -moz-animation-name: bounce-loading;
   -moz-animation-duration: 3s;
   -moz-animation-iteration-count: infinite;
   -moz-animation-timing-function: linear;
-  -webkit-animation-name: bounce_loadingProgressG;
+  -webkit-animation-name: bounce-loading;
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-  -ms-animation-name: bounce_loadingProgressG;
+  -ms-animation-name: bounce-loading;
   -ms-animation-duration: 3s;
   -ms-animation-iteration-count: infinite;
   -ms-animation-timing-function: linear;
-  -o-animation-name: bounce_loadingProgressG;
+  -o-animation-name: bounce-loading;
   -o-animation-duration: 3s;
   -o-animation-iteration-count: infinite;
   -o-animation-timing-function: linear;
-  animation-name: bounce_loadingProgressG;
+  animation-name: bounce-loading;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  width: 150px;
-  height: 2px;
 }
-@-moz-keyframes bounce_loadingProgressG {
+@-moz-keyframes bounce-loading {
   0% {
     margin-left: -150px;
   }
@@ -40,7 +39,7 @@
     margin-left: 100%;
   }
 }
-@-webkit-keyframes bounce_loadingProgressG {
+@-webkit-keyframes bounce-loading {
   0% {
     margin-left: -150px;
   }
@@ -48,7 +47,7 @@
     margin-left: 100%;
   }
 }
-@-ms-keyframes bounce_loadingProgressG {
+@-ms-keyframes bounce-loading {
   0% {
     margin-left: -150px;
   }
@@ -56,7 +55,7 @@
     margin-left: 100%;
   }
 }
-@-o-keyframes bounce_loadingProgressG {
+@-o-keyframes bounce-loading {
   0% {
     margin-left: -150px;
   }
@@ -64,7 +63,7 @@
     margin-left: 100%;
   }
 }
-@keyframes bounce_loadingProgressG {
+@keyframes bounce-loading {
   0% {
     margin-left: -150px;
   }
