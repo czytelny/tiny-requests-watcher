@@ -1,25 +1,29 @@
 "use strict";
 
 /**
-    Tiny requests watcher. 
-    Supported by >=IE9 and other modern browsers    
-**/
+ * Tiny requests watcher.
+ * Supported by >=IE9 and other modern browsers. No external dependencies.
+ **/
 
-//type="GET" || "POST". undefined == all type of requests (post,get etc)
+//type: "GET" or "POST"
 var RequestWatcher = function(spinnerId, type) {
-     var openProto = XMLHttpRequest.prototype.open;
-     XMLHttpRequest.prototype.open = function(requestType, requestUrl) {  
-            openProto.apply(this, arguments);
-            var xhr = this;
-            if (type) {
-                if (requestType.toLowerCase() === type.toLowerCase()) {
-                    var spinnerElement = document.getElementById(spinnerId);
-                    spinnerElement.style.display = "block";          
+    var openProto = XMLHttpRequest.prototype.open;
+    var spinnerElement = document.getElementById(spinnerId);
 
-                    xhr.addEventListener("load", function() {
-                        spinnerElement.style.display = "none";       
-                    }, false);
-                }            
-            }
-     };
+    XMLHttpRequest.prototype.open = function(requestType, requestUrl) {
+        openProto.apply(this, arguments);
+        var xhr = this;
+        if (type && (requestType.toLowerCase() === type.toLowerCase())) {
+            showSpinner();
+            xhr.addEventListener("load", hideSpinner);
+        }
+    };
+
+    function showSpinner() {
+        spinnerElement.style.display = "block";
+    }
+
+    function hideSpinner() {
+        spinnerElement.style.display = "none";
+    }
 };

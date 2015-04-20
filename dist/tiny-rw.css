@@ -5,6 +5,7 @@
   background-color: #000000;
   position: absolute;
   top: 0;
+  display: none;
 }
 .loadingProgress {
   width: 150px;

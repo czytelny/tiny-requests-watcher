@@ -2,12 +2,12 @@
 
 var rw = new RequestWatcher('spinner', 'get');
 
+var xhrGet = new XMLHttpRequest();
 
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
+xhrGet.onreadystatechange = function() {
+    if (xhrGet.readyState === 4 && xhrGet.status === 200) {
         console.log("successfull received");
     }
 };
-xhr.open('get', 'demo_data.json');
-xhr.send();
+xhrGet.open('get', 'demo_data.json');
+xhrGet.send();
