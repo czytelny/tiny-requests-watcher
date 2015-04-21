@@ -5,7 +5,12 @@
   background-color: #000000;
   position: absolute;
   top: 0;
-  display: none;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .loadingProgress {
   width: 150px;

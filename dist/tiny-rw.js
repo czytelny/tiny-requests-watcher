@@ -20,10 +20,13 @@ var RequestWatcher = function(spinnerId, type) {
     };
 
     function showSpinner() {
-        spinnerElement.style.display = "block";
+        spinnerElement.style.opacity = "1";
     }
 
     function hideSpinner() {
-        spinnerElement.style.display = "none";
+        setTimeout(function() {
+            spinnerElement.style.opacity = "0";
+        }, 500);
+        
     }
 };

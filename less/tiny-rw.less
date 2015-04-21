@@ -2,11 +2,12 @@
 @spinner-height: 2px;
 @spinner-width: 100%;
 @moving-part-width: 150px;
-@duration: 3s;
+@movement-duration: 3s;
 @animation-name: bounce-loading;
 @background-color: #000000;
 @moving-part-color: #f9eb03;
 @timing-function: linear;
+@hiding-duration: 0.3s;
 
 #spinner {
   width: @spinner-width;
@@ -15,7 +16,12 @@
   background-color: @background-color;
   position: absolute;
   top: 0;
-  display: none;
+  opacity: 0;
+  -webkit-transition: all @hiding-duration;
+  -moz-transition: all @hiding-duration;
+  -ms-transition: all @hiding-duration;
+  -o-transition: all @hiding-duration;
+  transition: all @hiding-duration;
 }
 
 .loadingProgress {
@@ -24,23 +30,23 @@
   background-color: @moving-part-color;
 
   -moz-animation-name: @animation-name;
-  -moz-animation-duration: @duration;
+  -moz-animation-duration: @movement-duration;
   -moz-animation-iteration-count: infinite;
   -moz-animation-timing-function: @timing-function;
   -webkit-animation-name: @animation-name;
-  -webkit-animation-duration: @duration;
+  -webkit-animation-duration: @movement-duration;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: @timing-function;
   -ms-animation-name: @animation-name;
-  -ms-animation-duration: @duration;
+  -ms-animation-duration: @movement-duration;
   -ms-animation-iteration-count: infinite;
   -ms-animation-timing-function: @timing-function;
   -o-animation-name: @animation-name;
-  -o-animation-duration: @duration;
+  -o-animation-duration: @movement-duration;
   -o-animation-iteration-count: infinite;
   -o-animation-timing-function: @timing-function;
   animation-name: @animation-name;
-  animation-duration: @duration;
+  animation-duration: @movement-duration;
   animation-iteration-count: infinite;
   animation-timing-function: @timing-function;
 }
