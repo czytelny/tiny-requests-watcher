@@ -24,7 +24,9 @@
   transition: all @hiding-duration;
 }
 
-.loadingProgress {
+#spinner:after {
+  content: " ";
+  display: block;
   width: @moving-part-width;
   height: @spinner-height;
   background-color: @moving-part-color;

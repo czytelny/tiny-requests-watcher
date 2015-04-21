@@ -12,7 +12,9 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-.loadingProgress {
+#spinner:after {
+  content: " ";
+  display: block;
   width: 150px;
   height: 2px;
   background-color: #f9eb03;
