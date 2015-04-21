@@ -13,10 +13,18 @@
           type='text/css'>
 </head>
 <body>
-<div id="spinner"></div>
+<div id="spinnerGet"  class="spinner"></div>
+<div id="spinnerPost" class="spinner spinnerPost"></div>
 <div class="row">
-    <div class="large-12 columns ">        
-
+    <div class="columns large-12"><h1>tiny request watcher demo</h1></div>
+</div>
+<div class="row">
+    <div class="large-6 columns ">
+        <button type="button" onclick="fireGetRequest();">GET request!</button>
+        <button type="button" onclick="removeGetSpinner();">remove get spinner</button>
+    </div>
+    <div class="large-6 columns ">
+        <button type="button" onclick="firePostRequest();">POST request!</button>
     </div>
 </div>
 <script src="js/demo.js"></script>

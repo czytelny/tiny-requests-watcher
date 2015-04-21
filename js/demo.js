@@ -1,13 +1,21 @@
 "use strict";
 
-var rw = new RequestWatcher('spinner', 'get');
+var rw = new RequestWatcher('spinnerGet', 'get');
 
-var xhrGet = new XMLHttpRequest();
+//var spinnerForPost = new requestWatcher('spinnerPost', 'post');
 
-xhrGet.onreadystatechange = function() {
-    if (xhrGet.readyState === 4 && xhrGet.status === 200) {
-        console.log("successfull received");
-    }
+var fireGetRequest = function() {
+    var xhrGet = new XMLHttpRequest();
+    xhrGet.open('get', 'demo_data.json');
+    setTimeout(function() {
+        xhrGet.send();
+    }, 2000);
 };
-xhrGet.open('get', 'demo_data.json');
-xhrGet.send();
+
+var firePostRequest = function() {
+    var xhrGet = new XMLHttpRequest();
+    xhrGet.open('post', 'demo_data.json');
+    setTimeout(function() {
+        xhrGet.send();
+    }, 500);
+};

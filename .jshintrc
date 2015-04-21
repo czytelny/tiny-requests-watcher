@@ -14,7 +14,7 @@
     "node": true,
     "globals": {
         /*request watcher*/
-        "RequestWatcher": true,
+        "requestWatcher": true,
         /*jasmine*/
         "it": false,
         "xit": false,

@@ -9,7 +9,7 @@
 @timing-function: linear;
 @hiding-duration: 0.3s;
 
-#spinner {
+.spinner {
   width: @spinner-width;
   height: @spinner-height;
   overflow: hidden;
@@ -24,7 +24,7 @@
   transition: all @hiding-duration;
 }
 
-#spinner:after {
+.spinner:after {
   content: " ";
   display: block;
   width: @moving-part-width;
@@ -51,6 +51,10 @@
   animation-duration: @movement-duration;
   animation-iteration-count: infinite;
   animation-timing-function: @timing-function;
+}
+
+.spinner.spinnerPost:after {
+  background-color: red;
 }
 
 @-moz-keyframes @animation-name {
