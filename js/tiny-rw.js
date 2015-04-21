@@ -6,27 +6,46 @@
  **/
 
 //type: "GET" or "POST"
-var RequestWatcher = function(spinnerId, type) {
+var RequestWatcher = (function () {
+    //private variables and functions
     var openProto = XMLHttpRequest.prototype.open;
-    var spinnerElement = document.getElementById(spinnerId);
 
-    XMLHttpRequest.prototype.open = function(requestType, requestUrl) {
-        openProto.apply(this, arguments);
-        var xhr = this;
-        if (type && (requestType.toLowerCase() === type.toLowerCase())) {
-            showSpinner();
-            xhr.addEventListener("load", hideSpinner);
+    var showSpinner = function(spinnerElement) {
+        spinnerElement.style.opacity = "1";
+    };
+
+    var hideSpinner = function(spinnerElement) {
+        setTimeout(function() { //just temporary fot testing purpose
+            spinnerElement.style.opacity = "0";
+        }, 500);
+    };
+
+    var hideSpinnerCurried = function(spinnerElement) {
+        return function() {
+            hideSpinner(spinnerElement);
         }
     };
 
-    function showSpinner() {
-        spinnerElement.style.opacity = "1";
-    }
+    // constructor
+    var RequestWatcher = function(spinnerId, type) {
+        var spinnerElement = document.getElementById(spinnerId);
 
-    function hideSpinner() {
-        setTimeout(function() {
-            spinnerElement.style.opacity = "0";
-        }, 500);
-        
-    }
-};
+        XMLHttpRequest.prototype.open = function(requestType, requestUrl) {
+            openProto.apply(this, arguments);
+            var xhr = this;
+            if (type && (requestType.toLowerCase() === type.toLowerCase())) {
+                showSpinner(spinnerElement);
+                xhr.addEventListener("load", hideSpinnerCurried(spinnerElement));
+            }
+        };
+    };
+
+    RequestWatcher.prototype = {
+        constructor: RequestWatcher,
+        version: '1.0',
+        setBackground: function(color) {
+            console.log("mock: background set to " + color);
+        }
+    };
+    return RequestWatcher;
+})();
