@@ -65,6 +65,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('dist', ['concat', 'uglify', 'less:dist']);
+    grunt.registerTask('dist', ['jshint', 'concat', 'uglify', 'less:dist']);
     grunt.registerTask('install', ['concat', 'less:dev', 'jshint']);
 };
