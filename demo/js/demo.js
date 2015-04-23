@@ -1,6 +1,6 @@
 "use strict";
 
-var rw = new RequestWatcher('spinnerGet', 'get');
+var rw = new RequestWatcher('spinnerGet', 'get', '.json');
 
 //var spinnerForPost = new requestWatcher('spinnerPost', 'post');
 

@@ -5,8 +5,7 @@
  * Supported by >=IE9 and other modern browsers. No external dependencies.
  **/
 
-//type: "GET" or "POST"
-var RequestWatcher = (function () {
+var RequestWatcher = (function() {
     //private variables and functions
     var openProto = XMLHttpRequest.prototype.open;
 
@@ -15,37 +14,31 @@ var RequestWatcher = (function () {
     };
 
     var hideSpinner = function(spinnerElement) {
-        setTimeout(function() { //just temporary fot testing purpose
-            spinnerElement.style.opacity = "0";
-        }, 500);
+        spinnerElement.style.opacity = "0";
     };
 
     var hideSpinnerCurried = function(spinnerElement) {
         return function() {
             hideSpinner(spinnerElement);
-        }
+        };
     };
 
-    // constructor
-    var RequestWatcher = function(spinnerId, type) {
+    return function(spinnerId, type, textPattern) {
         var spinnerElement = document.getElementById(spinnerId);
 
         XMLHttpRequest.prototype.open = function(requestType, requestUrl) {
             openProto.apply(this, arguments);
             var xhr = this;
+            if (textPattern) {
+                var re = new RegExp(textPattern);
+                if (!re.test(requestUrl)) {
+                    return;
+                }
+            }
             if (type && (requestType.toLowerCase() === type.toLowerCase())) {
                 showSpinner(spinnerElement);
                 xhr.addEventListener("load", hideSpinnerCurried(spinnerElement));
             }
         };
     };
-
-    RequestWatcher.prototype = {
-        constructor: RequestWatcher,
-        version: '1.0',
-        setBackground: function(color) {
-            console.log("mock: background set to " + color);
-        }
-    };
-    return RequestWatcher;
 })();
