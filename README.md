@@ -32,3 +32,7 @@ That's it.
 * `spinnerElementId`
 * `request_type` 
 * `url_pattern`
+
+### Change log
+#### v. 0.1 
+* Initial version
