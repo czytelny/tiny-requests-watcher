@@ -17,7 +17,7 @@
   display: block;
   width: 150px;
   height: 2px;
-  background-color: #f9eb03;
+  background-color: #ffffff;
   -moz-animation-name: bounce-loading;
   -moz-animation-duration: 3s;
   -moz-animation-iteration-count: infinite;
@@ -40,7 +40,7 @@
   animation-timing-function: linear;
 }
 .spinner.spinnerPost:after {
-  background-color: red;
+  background-color: #09abff;
 }
 @-moz-keyframes bounce-loading {
   0% {

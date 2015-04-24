@@ -1,21 +1,39 @@
 "use strict";
 
-var rw = new RequestWatcher('spinnerGet', 'get', '.json');
-
-//var spinnerForPost = new requestWatcher('spinnerPost', 'post');
+var duration = 5000; //5sec
 
 var fireGetRequest = function() {
     var xhrGet = new XMLHttpRequest();
     xhrGet.open('get', 'demo_data.json');
-    setTimeout(function() {
+    setTimeout(function() {           //timeout for demo purpose
         xhrGet.send();
-    }, 2000);
+    }, duration);
 };
 
 var firePostRequest = function() {
     var xhrGet = new XMLHttpRequest();
-    xhrGet.open('post', 'demo_data.json');
-    setTimeout(function() {
+    xhrGet.open('post', '/someUrl');
+    setTimeout(function() {           //timeout for demo purpose
         xhrGet.send();
-    }, 500);
+    }, duration);
+};
+
+var firePostWithJson = function() {
+    var xhrGet = new XMLHttpRequest();
+    xhrGet.open('post', '/someUrl.json');
+    setTimeout(function() {          //timeout for demo purpose
+        xhrGet.send();
+    }, duration);
+};
+
+var attach = function() {
+    var rw = new RequestWatcher('spinnerGet', 'get');
+};
+
+var attachForPostJsons = function() {
+    var rw = new RequestWatcher('spinnerPost', 'post', 'json');
+};
+
+var attachPost = function() {
+    var rw = new RequestWatcher('spinnerPost', 'get');
 };

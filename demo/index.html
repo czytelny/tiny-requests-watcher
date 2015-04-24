@@ -13,17 +13,43 @@
           type='text/css'>
 </head>
 <body>
-<div id="spinnerGet"  class="spinner"></div>
+<div id="spinnerGet" class="spinner"></div>
 <div id="spinnerPost" class="spinner spinnerPost"></div>
 <div class="row">
-    <div class="columns large-12"><h1>tiny request watcher demo</h1></div>
+    <div class="columns large-12"><h1>tiny-requests-watcher demo</h1></div>
 </div>
+
 <div class="row">
-    <div class="large-6 columns ">
-        <button type="button" onclick="fireGetRequest();">GET request!</button>
+    <div class="large-12 columns">
+        <h3>1. Attach requests watcher to...</h3>
     </div>
-    <div class="large-6 columns ">
-        <button type="button" onclick="firePostRequest();">POST request!</button>
+    <div class="large-4 columns">
+        ...all kind of GET requests
+    </div>
+    <div class="large-8 columns">
+        <button type="button" onclick="attach();">attach</button>
+    </div>
+    <div class="large-4 columns">
+        POST with .json in url
+    </div>
+    <div class="large-8 columns">
+        <button type="button" onclick="attachForPostJsons();">attach</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-12 columns">
+        <h3>2. fire requests & take a look on top of the page</h3>
+    </div>
+    <div class="large-4 columns">
+        <button type="button" class="success" onclick="fireGetRequest();">send GET!</button>
+    </div>
+    <div class="large-4 columns ">
+        <button type="button" class="success" onclick="firePostRequest();">send POST!</button>
+    </div>
+    <div class="large-4 columns ">
+        <button type="button" class="success" onclick="firePostWithJson();">send POST with
+            json in url</button>
     </div>
 </div>
 <script src="js/demo.js"></script>
