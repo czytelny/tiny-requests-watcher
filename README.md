@@ -3,8 +3,7 @@
 Javascript library which allows to display custom spinner/loader for choosen requests - for example long lasting one.
 
 ### Demo
-
-link (available soon)
+See [czytelny.dbox.pl/trw-demo/](http://czytelny.dbox.pl/trw-demo/) 
  
 ### What do I need to use it?
 Nothing except library itself. It's dendency free, pure javascript solution so you can use it on any project.
