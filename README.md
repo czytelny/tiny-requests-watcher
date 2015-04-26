@@ -38,5 +38,5 @@ That's it.
 * `url_pattern`
 
 ### Change log
-#### v. 0.1 
+#### v. 1.0 
 * Initial version
