@@ -11,10 +11,14 @@ var RequestWatcher = (function() {
 
     var showSpinner = function(spinnerElement) {
         spinnerElement.style.opacity = "1";
+        spinnerElement.style.display = "block";
     };
 
     var hideSpinner = function(spinnerElement) {
         spinnerElement.style.opacity = "0";
+        setTimeout(function() {
+            spinnerElement.style.display = "none";
+        }, 300);
     };
 
     var hideSpinnerCurried = function(spinnerElement) {
@@ -25,6 +29,7 @@ var RequestWatcher = (function() {
 
     return function(spinnerId, type, textPattern) {
         var spinnerElement = document.getElementById(spinnerId);
+        hideSpinner(spinnerElement);
 
         XMLHttpRequest.prototype.open = function(requestType, requestUrl) {
             openProto.apply(this, arguments);
