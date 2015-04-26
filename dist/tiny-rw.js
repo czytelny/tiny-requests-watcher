@@ -28,10 +28,11 @@ var RequestWatcher = (function() {
     };
 
     return function(spinnerId, type, textPattern) {
+        if ( !(this instanceof RequestWatcher)){
+            return new RequestWatcher(spinnerId, type, textPattern);
+        }
         var spinnerElement = document.getElementById(spinnerId);
-        this.displayValue = getComputedStyle(spinnerElement).display;
         hideSpinner(spinnerElement);
-        var that = this;
 
         XMLHttpRequest.prototype.open = function(requestType, requestUrl) {
             openProto.apply(this, arguments);

@@ -27,13 +27,13 @@ var firePostWithJson = function() {
 };
 
 var attach = function() {
-    var rw = new RequestWatcher('spinnerGet', 'get');
+    RequestWatcher('spinnerGet', 'get');
 };
 
 var attachForPostJsons = function() {
-    var rw = new RequestWatcher('spinnerPost', 'post', 'json');
+    new RequestWatcher('spinnerPost', 'post', 'json');
 };
 
 var attachPost = function() {
-    var rw = new RequestWatcher('spinnerPost', 'get');
+    new RequestWatcher('spinnerPost', 'get');
 };

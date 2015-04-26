@@ -28,6 +28,9 @@ var RequestWatcher = (function() {
     };
 
     return function(spinnerId, type, textPattern) {
+        if ( !(this instanceof RequestWatcher)){
+            return new RequestWatcher(spinnerId, type, textPattern);
+        }
         var spinnerElement = document.getElementById(spinnerId);
         hideSpinner(spinnerElement);
 
