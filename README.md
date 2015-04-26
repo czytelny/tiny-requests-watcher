@@ -25,6 +25,10 @@ and then initialize in a javascript file:
 ```js
 var rw = new RequestWatcher('spinnerForGetRequests', 'get');
 ```
+or 
+```js
+RequestWatcher('spinnerForGetRequests', 'get');
+```
 
 That's it.
 
