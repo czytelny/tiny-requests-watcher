@@ -8,6 +8,7 @@
 var RequestWatcher = (function() {
     //private variables and functions
     var openProto = XMLHttpRequest.prototype.open;
+    var watchers = [];
 
     var showSpinner = function(spinnerElement) {
         spinnerElement.style.opacity = "1";
@@ -27,26 +28,45 @@ var RequestWatcher = (function() {
         };
     };
 
-    return function(spinnerId, type, textPattern) {
-        if ( !(this instanceof RequestWatcher)){
-            return new RequestWatcher(spinnerId, type, textPattern);
-        }
-        var spinnerElement = document.getElementById(spinnerId);
-        hideSpinner(spinnerElement);
+    var registerNewWatcher = function() {
+        watchers.push(this);
+    };
 
+    var rewritePrototype = function() {
         XMLHttpRequest.prototype.open = function(requestType, requestUrl) {
             openProto.apply(this, arguments);
+            var watchersLength = watchers.length;
             var xhr = this;
-            if (textPattern) {
-                var re = new RegExp(textPattern);
-                if (!re.test(requestUrl)) {
-                    return;
+
+            for (var i = 0; i < watchersLength; i++) {
+                var spinnerElement = watchers[i].spinnerElement;
+                var type = watchers[i].typePattern;
+                var textPattern = watchers[i].textPattern;
+
+                if (textPattern) {
+                    var re = new RegExp(textPattern);
+                    if (!re.test(requestUrl)) {
+                        return;
+                    }
+                }
+                if (type && (requestType.toLowerCase() === type.toLowerCase())) {
+                    showSpinner(spinnerElement);
+                    xhr.addEventListener("load", hideSpinnerCurried(spinnerElement));
                 }
             }
-            if (type && (requestType.toLowerCase() === type.toLowerCase())) {
-                showSpinner(spinnerElement);
-                xhr.addEventListener("load", hideSpinnerCurried(spinnerElement));
-            }
         };
+    };
+
+    return function(spinnerId, type, textPattern) {
+        if (!(this instanceof RequestWatcher)) {
+            return new RequestWatcher(spinnerId, type, textPattern);
+        }
+
+        this.spinnerElement = document.getElementById(spinnerId);
+        this.textPattern = textPattern;
+        this.typePattern = type;
+
+        registerNewWatcher.call(this);
+        rewritePrototype.call(this);
     };
 })();
